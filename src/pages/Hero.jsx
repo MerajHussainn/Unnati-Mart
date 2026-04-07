@@ -18,9 +18,9 @@ const Hero = () => {
         <p className="text-lg md:text-xl opacity-90 mb-8 max-w-[500px]">
           Get premium quality groceries delivered to your doorstep. Healthy choices begin with Unnati Mart.
         </p>
-        <button className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:-translate-y-1 hover:shadow-xl flex items-center gap-2">
+        <a href="#categories" className="inline-flex bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:-translate-y-1 hover:shadow-xl items-center gap-2">
           Shop Now <ArrowRight size={22} />
-        </button>
+        </a>
       </div>
     </section>
   );

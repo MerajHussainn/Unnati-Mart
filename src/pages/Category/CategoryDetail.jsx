@@ -55,7 +55,7 @@ const CategoryDetail = ({ category, products, onBack, onAddToCart }) => {
                 {/* Floating Add Button - Blinkit Style */}
                 <button 
                   className="absolute bottom-2 right-2 px-4 py-1.5 bg-white border border-emerald-500 text-emerald-600 text-xs font-black rounded-lg shadow-sm hover:bg-emerald-500 hover:text-white transition-all active:scale-90 z-20 uppercase tracking-tighter"
-                  onClick={(e) => { e.stopPropagation(); onAddToCart(); }}
+                  onClick={(e) => { e.stopPropagation(); onAddToCart(prod); }}
                 >
                   ADD
                 </button>
