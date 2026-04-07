@@ -11,7 +11,7 @@ const TrustBar = () => {
 
   return (
     <div className="py-20 border-t border-gray-100 mt-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
         {points.map((point, i) => (
           <div key={i} className="flex flex-col items-center text-center group">
             <div className={`p-6 rounded-[2rem] bg-gray-50 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-white group-hover:shadow-2xl group-hover:shadow-charcoal/5 ${point.color}`}>

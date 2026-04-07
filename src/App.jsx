@@ -7,15 +7,16 @@ import BottomNav from './components/BottomNav';
 
 // Home Sections
 import Hero from './pages/Hero';
-import Categories from './pages/Categories';
-import FeaturedProducts from './pages/FeaturedProducts';
-import CategoryDetail from './pages/CategoryDetail';
+import Categories from './pages/Category/Categories';
+import CategoryDetail from './pages/Category/CategoryDetail';
+import DealsPage from './pages/DealsPage';
 
 // New Professional Sections
 import PromoSlider from './pages/home/PromoSlider';
 import FlashDeals from './pages/home/FlashDeals';
 import BrandSpotlight from './pages/home/BrandSpotlight';
 import TrustBar from './pages/home/TrustBar';
+import ContactUs from './pages/home/ContactUs';
 
 // Data
 import { products } from './data/products';
@@ -66,7 +67,13 @@ function App() {
       />
 
       <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 pb-24">
-        {selectedCategory ? (
+        {selectedCategory === 'DEALS' ? (
+          <DealsPage
+            products={products}
+            onBack={() => setSelectedCategory(null)}
+            onAddToCart={handleAddToCart}
+          />
+        ) : selectedCategory ? (
           <CategoryDetail
             category={selectedCategory}
             products={filteredProducts}
@@ -87,28 +94,32 @@ function App() {
 
             {/* New Flash Deals Section */}
             <FlashDeals
-              products={products.filter(p => p.isDeal)}
+              products={products}
               onAddToCart={handleAddToCart}
+              onViewAllDeals={() => setSelectedCategory('DEALS')}
             />
 
             {/* New Brand Spotlight */}
             <BrandSpotlight />
 
-            <FeaturedProducts
-              products={getFeaturedProducts()}
-              onAddToCart={handleAddToCart}
-              selectedCategory={null}
-            />
-
             {/* Customer Trust Indicators */}
             <TrustBar />
+
+            {/* Contact Us Section */}
+            <ContactUs />
           </>
         )}
       </main>
 
-      <Footer />
+      <Footer 
+        onHomeClick={() => setSelectedCategory(null)}
+        onDealsClick={() => setSelectedCategory('DEALS')}
+      />
 
-      <BottomNav />
+      <BottomNav
+        onHomeClick={() => setSelectedCategory(null)}
+        onDealsClick={() => setSelectedCategory('DEALS')}
+      />
     </div>
   );
 }

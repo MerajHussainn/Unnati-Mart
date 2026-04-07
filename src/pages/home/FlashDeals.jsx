@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Timer, Star, ShoppingCart } from 'lucide-react';
 
-const FlashDeals = ({ products, onAddToCart }) => {
+const FlashDeals = ({ products, onAddToCart, onViewAllDeals }) => {
   const dealProducts = products.filter(p => p.id % 2 === 0).slice(0, 8); // Temporary logic till products.js updated
   
   const [timeLeft, setTimeLeft] = useState({ h: 12, m: 45, s: 30 });
@@ -40,7 +40,7 @@ const FlashDeals = ({ products, onAddToCart }) => {
           <h2 className="text-4xl font-black text-charcoal">Deal of the Day</h2>
           <p className="text-gray-500 font-bold text-lg mt-2">Grab these premium items before the clock runs out!</p>
         </div>
-        <button className="text-primary font-black uppercase tracking-widest text-sm hover:translate-x-2 transition-transform">See All Deals &rarr;</button>
+        <button onClick={onViewAllDeals} className="text-primary font-black uppercase tracking-widest text-sm hover:translate-x-2 transition-transform">See All Deals &rarr;</button>
       </div>
 
       <div className="flex gap-8 overflow-x-auto no-scrollbar pb-8 -mx-10 px-10">

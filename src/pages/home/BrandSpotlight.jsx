@@ -27,7 +27,7 @@ const BrandSpotlight = () => {
         <button className="text-primary font-black uppercase tracking-widest text-sm translate-x-0 group hover:translate-x-2 transition-transform underline decoration-primary/30 underline-offset-8 decoration-2">Explore All Brands &rarr;</button>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {brands.map((brand, i) => (
           <div
             key={i}

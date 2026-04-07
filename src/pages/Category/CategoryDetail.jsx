@@ -37,7 +37,7 @@ const CategoryDetail = ({ category, products, onBack, onAddToCart }) => {
 
       {/* Product Grid */}
       {products.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {products.map((prod) => (
             <div key={prod.id} className="bg-white rounded-[2.5rem] p-6 border border-gray-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col group relative">
               <div className="aspect-[4/5] bg-gray-50 rounded-[2rem] mb-6 overflow-hidden relative">

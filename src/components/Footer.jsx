@@ -2,10 +2,10 @@ import React from 'react';
 import { Globe, Share2, MapPin, Phone, Mail } from 'lucide-react';
 import logo from '../assets/logo/logo.webp';
 
-const Footer = () => {
+const Footer = ({ onHomeClick, onDealsClick }) => {
   return (
     <footer className="bg-gray-50 pt-16 pb-8 px-6 md:px-12 border-t border-gray-200 mt-20">
-      <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+      <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-16">
         <div>
           <div className="flex items-center gap-2 mb-6">
             <img src={logo} alt="Unnati Mart" className="w-14 h-14 object-contain" />
@@ -23,11 +23,11 @@ const Footer = () => {
 
         <div>
           <h4 className="font-bold text-charcoal mb-6">Quick Links</h4>
-          <ul className="space-y-4 text-gray-500 text-sm">
-            <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Shop Catalog</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Delivery Info</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+          <ul className="space-y-4 text-gray-500 text-sm font-medium">
+            <li><a href="#home" onClick={(e) => { if(onHomeClick) onHomeClick(); }} className="hover:text-primary transition-colors">Home</a></li>
+            <li><a href="#categories" onClick={(e) => { if(onHomeClick) onHomeClick(); }} className="hover:text-primary transition-colors">Categories</a></li>
+            <li><a href="#deals" onClick={(e) => { e.preventDefault(); if(onDealsClick) onDealsClick(); }} className="hover:text-primary transition-colors">Special Deals</a></li>
+            <li><a href="#brands" className="hover:text-primary transition-colors">Top Brands</a></li>
           </ul>
         </div>
 

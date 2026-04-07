@@ -2,29 +2,35 @@ import React from 'react';
 import { ChevronRight, X, LayoutGrid } from 'lucide-react';
 
 // Assets
-import catVeg from '../assets/cat_veg_alt.png';
-import catFruits from '../assets/cat_fruits_alt.png';
-import catMeat from '../assets/cat_meat_alt.png';
-import catFish from '../assets/cat_fish_alt.png';
-import catNuts from '../assets/cat_nuts_alt.png';
-import catDairy from '../assets/category_dairy.png';
-import catGrains from '../assets/category_grains.png';
+import catVeg from '../../assets/cat_veg_alt.png';
+import catFruits from '../../assets/cat_fruits_alt.png';
+import catMeat from '../../assets/cat_meat_alt.png';
+import catNuts from '../../assets/cat_nuts_alt.png';
+import catDairy from '../../assets/category_dairy.png';
+import catGrains from '../../assets/category_grains.png';
+import catRice from '../../assets/prod_rice.png';
+import catPulses from '../../assets/category_pulses.png';
+import catCereals from '../../assets/category_cereals.png';
+import catHygiene from '../../assets/category_hygiene.png';
+import catOils from '../../assets/category_oils.png';
+import catJuices from '../../assets/category_juices.png';
+import catSnacks from '../../assets/category_snacks.png';
 
 const Categories = ({ selectedCategory, onCategorySelect }) => {
   const categories = [
     { name: 'Vegetables', items: '45+ Products', img: catVeg, theme: 'bg-emerald-50 hover:bg-emerald-100/80 border-emerald-100/50' },
     { name: 'Fruits', items: '32+ Products', img: catFruits, theme: 'bg-teal-50 hover:bg-teal-100/80 border-teal-100/50' },
-    { name: 'Pulses & Dal', items: '20+ Products', img: 'https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&q=80', theme: 'bg-orange-50 hover:bg-orange-100/80 border-orange-100/50' },
-    { name: 'Cooking Oils', items: '12+ Products', img: 'https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=600&q=80', theme: 'bg-yellow-50 hover:bg-yellow-100/80 border-yellow-100/50' },
+    { name: 'Pulses & Dal', items: '20+ Products', img: catPulses, theme: 'bg-orange-50 hover:bg-orange-100/80 border-orange-100/50' },
+    { name: 'Cooking Oils', items: '12+ Products', img: catOils, theme: 'bg-yellow-50 hover:bg-yellow-100/80 border-yellow-100/50' },
     { name: 'Dairy & Eggs', items: '24+ Products', img: catDairy, theme: 'bg-orange-50 hover:bg-orange-100/80 border-orange-100/50' },
-    { name: 'Cereals', items: '15+ Products', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80', theme: 'bg-yellow-50 hover:bg-yellow-100/80 border-yellow-100/50' },
+    { name: 'Cereals', items: '15+ Products', img: catCereals, theme: 'bg-yellow-50 hover:bg-yellow-100/80 border-yellow-100/50' },
     { name: 'Fresh Meat', items: '18+ Products', img: catMeat, theme: 'bg-amber-100/30 hover:bg-amber-100/60 border-amber-200/50' },
     { name: 'Dry Fruits', items: '22+ Products', img: catNuts, theme: 'bg-rose-50 hover:bg-rose-100/80 border-rose-100/50' },
-    { name: 'Grains & Flour', items: '12+ Products', img: catGrains, theme: 'bg-amber-50 hover:bg-amber-100/80 border-amber-100/50' },
-    { name: 'Juices', items: '10+ Products', img: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=600&q=80', theme: 'bg-red-50 hover:bg-red-100/80 border-red-100/50' },
-    { name: 'Spices', items: '30+ Products', img: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80', theme: 'bg-indigo-50 hover:bg-indigo-100/80 border-indigo-100/50' },
-    { name: 'Home & Hygiene', items: '25+ Products', img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80', theme: 'bg-blue-50 hover:bg-blue-100/80 border-blue-100/50' },
-    { name: 'Organic Snacks', items: '18+ Products', img: 'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?auto=format&fit=crop&w=600&q=80', theme: 'bg-violet-50 hover:bg-violet-100/80 border-violet-100/50' },
+    { name: 'Grains & Flour', items: '12+ Products', img: catRice, theme: 'bg-amber-50 hover:bg-amber-100/80 border-amber-100/50' },
+    { name: 'Juices', items: '10+ Products', img: catJuices, theme: 'bg-red-50 hover:bg-red-100/80 border-red-100/50' },
+    { name: 'Spices', items: '30+ Products', img: catGrains, theme: 'bg-indigo-50 hover:bg-indigo-100/80 border-indigo-100/50' },
+    { name: 'Home & Hygiene', items: '25+ Products', img: catHygiene, theme: 'bg-blue-50 hover:bg-blue-100/80 border-blue-100/50' },
+    { name: 'Organic Snacks', items: '18+ Products', img: catSnacks, theme: 'bg-violet-50 hover:bg-violet-100/80 border-violet-100/50' },
   ];
 
   const handleCategoryClick = (categoryName) => {
@@ -52,7 +58,7 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
         {categories.map((cat, i) => {
           const isActive = selectedCategory === cat.name;
           const isExternal = typeof cat.img === 'string' && cat.img.startsWith('http');
@@ -79,7 +85,7 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
                   }}
                 />
                 <div className="hidden absolute inset-0 items-center justify-center bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200">
-                    <LayoutGrid size={48} className="text-gray-300" />
+                  <LayoutGrid size={48} className="text-gray-300" />
                 </div>
               </div>
               {isActive && (
