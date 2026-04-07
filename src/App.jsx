@@ -25,10 +25,38 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Scroll to top when category changes
+  // Scroll behavior when category changes or home is clicked
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (!selectedCategory) {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, [selectedCategory]);
+
+  const handleHomeNav = (hash) => {
+    setSelectedCategory(null);
+    setTimeout(() => {
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 50);
+  };
 
   const handleAddToCart = () => {
     setCartCount(prev => prev + 1);
@@ -111,13 +139,13 @@ function App() {
         )}
       </main>
 
-      <Footer 
-        onHomeClick={() => setSelectedCategory(null)}
+      <Footer
+        onHomeClick={() => handleHomeNav()}
         onDealsClick={() => setSelectedCategory('DEALS')}
       />
 
       <BottomNav
-        onHomeClick={() => setSelectedCategory(null)}
+        onNavClick={handleHomeNav}
         onDealsClick={() => setSelectedCategory('DEALS')}
       />
     </div>

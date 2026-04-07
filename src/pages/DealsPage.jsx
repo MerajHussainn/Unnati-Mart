@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ShoppingCart, Heart, Timer } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Heart, Timer, Star } from 'lucide-react';
 
 const DealsPage = ({ products, onBack, onAddToCart }) => {
   // Only show deals related strictly to products that have a deal/discount
@@ -40,36 +40,41 @@ const DealsPage = ({ products, onBack, onAddToCart }) => {
       {dealProducts.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {dealProducts.map((prod) => (
-            <div key={prod.id} className="bg-white rounded-[2.5rem] p-6 border-2 border-rose-50 hover:border-rose-100 hover:shadow-[0_20px_50px_rgba(244,63,94,0.08)] transition-all duration-300 flex flex-col group relative">
-              <div className="aspect-[4/5] bg-gray-50 rounded-[2rem] mb-6 overflow-hidden relative flex items-center justify-center p-4">
-                <span className="absolute top-4 left-4 bg-rose-500 text-white text-xs font-black px-3 py-1.5 rounded-xl shadow-lg z-10 animate-pulse uppercase tracking-widest">
+            <div key={prod.id} className="bg-white rounded-[1.5rem] md:rounded-[3rem] p-3 md:p-6 border border-rose-50 hover:border-rose-200 hover:shadow-[0_15px_40px_rgba(244,63,94,0.06)] transition-all duration-300 flex flex-col group relative">
+              <div className="aspect-square bg-white rounded-[1.2rem] md:rounded-[2.5rem] mb-4 overflow-hidden relative flex items-center justify-center p-2 md:p-6 border border-rose-50">
+                <span className="absolute top-2 left-2 bg-rose-500 text-white text-[8px] md:text-sm font-black px-2 py-1 rounded-lg z-10 uppercase tracking-widest animate-pulse">
                   Save {prod.discount || '20%'}
                 </span>
                 <img 
                   src={prod.img} 
                   alt={prod.name} 
-                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" 
+                  className="w-[85%] h-[85%] md:w-full md:h-full object-contain transition-transform duration-700 group-hover:scale-110" 
                 />
-                <button className="absolute top-4 right-4 p-3 bg-white/80 backdrop-blur-md rounded-2xl shadow-sm text-gray-400 hover:text-rose-500 hover:bg-white transition-all">
-                  <Heart size={20} />
+                
+                {/* Floating Add Button - Blinkit Style */}
+                <button 
+                  className="absolute bottom-2 right-2 px-4 py-1.5 bg-white border border-emerald-500 text-emerald-600 text-xs font-black rounded-lg shadow-sm hover:bg-emerald-500 hover:text-white transition-all active:scale-90 z-20 uppercase tracking-tighter"
+                  onClick={(e) => { e.stopPropagation(); onAddToCart(prod); }}
+                >
+                  ADD
                 </button>
               </div>
               
-              <div className="flex-1 flex flex-col">
-                <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em] mb-2">{prod.category}</span>
-                <h3 className="text-xl font-bold text-charcoal mb-4 line-clamp-2 leading-tight group-hover:text-primary transition-colors">{prod.name}</h3>
+              <div className="flex-1 flex flex-col px-1">
+                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Special Deal</span>
+                <h3 className="text-[14px] md:text-xl font-bold text-charcoal mb-2 line-clamp-2 leading-tight h-[2.5rem]">{prod.name}</h3>
                 
-                <div className="flex justify-between items-center mt-auto pt-5 border-t border-gray-50">
-                  <div className="flex flex-col">
-                     <span className="text-[11px] text-gray-400 font-bold uppercase tracking-widest line-through mb-1">Was ₹{parseInt(prod.price.slice(1)) + 40}</span>
-                     <span className="text-2xl font-black text-rose-500">{prod.price}</span>
-                  </div>
-                  <button 
-                    className="p-4 bg-charcoal text-white rounded-3xl hover:bg-primary transition-all active:scale-95 shadow-lg group/btn"
-                    onClick={() => onAddToCart(prod)}
-                  >
-                    <ShoppingCart size={22} className="group-hover/btn:scale-110 transition-transform" />
-                  </button>
+                <div className="flex items-center gap-1.5 mb-2">
+                   <div className="flex items-center gap-1 bg-gray-50 px-1.5 py-0.5 rounded-md text-[9px] font-bold text-gray-500">
+                      <Star size={10} className="fill-amber-400 text-amber-400" />
+                      4.8 (250)
+                   </div>
+                   <span className="text-[9px] text-rose-500 font-black uppercase tracking-tighter italic animate-pulse">FLASH DEAL</span>
+                </div>
+
+                <div className="flex items-center gap-2 mt-auto pt-2 border-t border-gray-50">
+                  <span className="text-sm md:text-2xl font-black text-rose-500">{prod.price}</span>
+                  <span className="text-[10px] text-gray-400 line-through">₹{parseInt(prod.price.slice(1)) + 50}</span>
                 </div>
               </div>
             </div>

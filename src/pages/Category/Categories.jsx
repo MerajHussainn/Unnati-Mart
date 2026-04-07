@@ -67,17 +67,17 @@ const Categories = ({ selectedCategory, onCategorySelect }) => {
             <div
               key={i}
               onClick={() => handleCategoryClick(cat.name)}
-              className={`${cat.theme} border rounded-[3rem] p-8 pt-10 text-center flex flex-col justify-between h-[360px] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl cursor-pointer group relative ${isActive ? 'ring-4 ring-offset-4 ring-primary' : ''}`}
+              className={`${cat.theme} border rounded-[2.2rem] md:rounded-[3.5rem] p-3 md:p-8 pt-5 md:pt-10 text-center flex flex-col justify-between aspect-[0.75] md:aspect-auto md:h-[380px] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl cursor-pointer group relative ${isActive ? 'ring-4 ring-offset-4 ring-primary' : ''}`}
             >
               <div>
-                <h3 className="text-2xl font-black text-charcoal mb-1">{cat.name}</h3>
-                <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">{cat.items}</p>
+                <h3 className="text-[13px] md:text-2xl font-black text-charcoal mb-1 leading-tight">{cat.name}</h3>
+                <p className="text-[9px] md:text-sm text-gray-400 font-bold uppercase tracking-widest">{cat.items}</p>
               </div>
-              <div className="w-full h-[200px] mt-6 flex items-end justify-center overflow-hidden relative">
+              <div className="w-full flex-1 mt-2 md:mt-6 flex items-end justify-center overflow-hidden relative">
                 <img
                   src={cat.img}
                   alt={cat.name}
-                  className={`w-full h-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-110 
+                  className={`w-[85%] h-[85%] md:w-full md:h-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-110 
                     ${isExternal ? 'contrast-[1.2] brightness-[1.05]' : 'contrast-[1.02] brightness-[1.0]'}`}
                   onError={(e) => {
                     e.target.style.display = 'none';

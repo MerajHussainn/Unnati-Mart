@@ -31,7 +31,7 @@ const BrandSpotlight = () => {
         {brands.map((brand, i) => (
           <div
             key={i}
-            className={`${brand.theme} ${brand.border} rounded-[2.5rem] p-8 h-[180px] flex items-center justify-center border hover:shadow-2xl hover:bg-white hover:-translate-y-2 transition-all duration-500 cursor-pointer group overflow-hidden relative`}
+            className="bg-white rounded-[2.5rem] md:rounded-[3rem] p-4 md:p-8 border-2 border-gray-50 flex flex-col items-center justify-center gap-4 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:border-primary/20 transition-all duration-500 group cursor-pointer aspect-square overflow-hidden relative"
           >
             <div className="flex flex-col items-center justify-center h-full w-full relative z-10">
               <img

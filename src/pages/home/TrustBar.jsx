@@ -14,7 +14,7 @@ const TrustBar = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
         {points.map((point, i) => (
           <div key={i} className="flex flex-col items-center text-center group">
-            <div className={`p-6 rounded-[2rem] bg-gray-50 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-white group-hover:shadow-2xl group-hover:shadow-charcoal/5 ${point.color}`}>
+            <div className={`p-6 rounded-[2.5rem] bg-gray-50 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-white group-hover:shadow-2xl group-hover:shadow-charcoal/5 ${point.color}`}>
               <point.icon size={32} className="stroke-[2.5]" />
             </div>
             <h3 className="text-xl font-black text-charcoal mb-2">{point.title}</h3>
